@@ -8,12 +8,17 @@ This is the Project 1 of Udacity CarND. The project is to develop an automatic l
 The goals / steps of this project are the following:
 
 - Make a pipeline that finds lane lines on the road
+- Reflect the work in a written report
 
-- Reflect on your work in a written report
+##Summary:
 
-  ​
+In this project, I'm using color selection, region of interest selection, grayscaling, Gaussian smoothing, Canny Edge Detection and Hough Tranform line detection techniques to piece together a pipeline to detect the line segments in the image, then average/extrapolate them and draw them onto the image for display After that, apply the pipeline to a realitic video stream as an automatic lane line finding programs.
 
-**Reflection**
+The pipeline consisted of 5 steps. First, I converted the images to grayscale, then I filtered out some noise through a Gaussian Blur, then using Canny algorithm ot selected edges with large gradients. For most of the time, the driver would only focused in the region in front of him/her. I selected edges within this region and mask the other part in the images to be black(ignored).Through Hough Transform, I extracted the related lines (sometimes to be fragmented lines since in the real world both dashed lines and solid lines are existed on the road) from the image and plot the extracted lines overlaying on the original image.
+
+
+
+## Reflection
 
 ##### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
