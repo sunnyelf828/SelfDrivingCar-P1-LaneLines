@@ -12,9 +12,11 @@ The goals / steps of this project are the following:
 
 ##Summary:
 
-In this project, I'm using color selection, region of interest selection, grayscaling, Gaussian smoothing, Canny Edge Detection and Hough Tranform line detection techniques to piece together a pipeline to detect the line segments in the image, then average/extrapolate them and draw them onto the image for display After that, apply the pipeline to a realitic video stream as an automatic lane line finding programs.
+In this project, We develop the pipeline and apply the pipeline to a real video stream to track the changes of the lane lines. The video comes from a camera mounted on the center of a car which recorded the real road conditions. After we apply the pipeline the to video, the automatically detected lane lines from our program will be superposed onto each frames of the original video. The main tools we are using in this project is computer vision.
 
-The pipeline consisted of 5 steps. First, I converted the images to grayscale, then I filtered out some noise through a Gaussian Blur, then using Canny algorithm ot selected edges with large gradients. For most of the time, the driver would only focused in the region in front of him/her. I selected edges within this region and mask the other part in the images to be black(ignored).Through Hough Transform, I extracted the related lines (sometimes to be fragmented lines since in the real world both dashed lines and solid lines are existed on the road) from the image and plot the extracted lines overlaying on the original image.
+I'm using color selection, region of interest selection, grayscaling, Gaussian smoothing, Canny Edge Detection and Hough Tranform line detection techniques to piece together a pipeline to detect the line segments in the image, then average/extrapolate them and draw them onto the image for display. After that, apply the pipeline to a realitic video stream as an automatic lane line finding programs.
+
+The pipeline consisted of 5 steps. First, I converted the images to grayscale since the canny algorithm usually took binary image, also most of the lines are either while or yellow which will be conserved as the brighter part in grayscale images, then I filtered out some noise through a Gaussian Blur, then using Canny algorithm to selected edges with large gradients. For most of the time, the driver would only focused in the region in front of him/her. I selected edges within this region and mask the other part in the images to be black(ignored).Through Hough Transform, I extracted the related lines (sometimes to be fragmented lines since in the real world both dashed lines and solid lines are existed on the road) from the image and plot the extracted lines overlaying on the original image.
 
 
 
@@ -55,7 +57,7 @@ In order to draw a single line (other than the fragmented lines) on the left and
 
 ##### 2. Identify potential shortcomings with your current pipeline
 
-One potential shortcoming would be what would happen when the lane lines are having a large curvature, the smoothed lane lines may crossover which is not the the real case.
+One potential shortcoming would be what would happen when the lane lines are having a large curvature, the smoothed lane lines may cross-over which is not the the real case.
 
 ##### 3. Suggest possible improvements to your pipeline
 
